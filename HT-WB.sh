@@ -948,7 +948,7 @@ Ver_Pckg_Tools() {
 				          	                sleep 1
 				          	      fi
 				          fi
-				          if [ "$Ver_Pixiewps" -ge "14" ] && [ "$Tools_Folder" != "" ] || [ "$Pixiewps_Version" -lt "14" ] && [ "$Tools_Folder" != "" ]
+				          if [ "$Ver_Pixiewps" -ge "1" ] && [ "$Tools_Folder" != "" ] || [ "$Pixiewps_Version" -lt "14" ] && [ "$Tools_Folder" != "" ]
 				               then
 					                NOP="Pixiewps"
 						            if [ $Uname == 'i686' ]
@@ -1015,7 +1015,7 @@ Ver_Pckg_Tools() {
 				          	    sleep 1
 				          fi
 				 else
-				 	      if [ "$Ver_Pixiewps" -ge "14" ] && [ "$Tools_Folder" != "" ] || [ "$Pixiewps_Version" -lt "14" ] && [ "$Tools_Folder" != "" ]
+				 	      if [ "$Ver_Pixiewps" -ge "1" ] && [ "$Tools_Folder" != "" ] || [ "$Pixiewps_Version" -lt "14" ] && [ "$Tools_Folder" != "" ]
 				               then
 						           Wait_Msg="Wait until the${Green} Pixiewps${white} is${Red} installed${White} ."
 						           End_Msg="Installation of$Green Pixiewps$White is done ."
@@ -1631,10 +1631,13 @@ CRACKING_PROCESS() {
 																	tset
 																	trap exit_function SIGINT
 															elif [ $hash_bully -eq 0 ]
-															     then
+															    
+then
 										                             echo ""
-										                             echo -e "$White [+] Running$Green Reaver$White with the correct$Green PIN$White, wait ..."
-											                         echo ""
+										      
+																 else
+																     echo ""
+																	 echo -e "$White [+] Running$Green reaver$White with the correct$Green PIN$White, wait ..."
 										                             echo -e -n "$BYellow"
 										                             reaver -i $mon -b $BSSID -c $CHANNEL -e "$ESSID" -vv -n -p $PIN -T 4 | tee  ${Temporary}/Get_PIN.txt
 										                             PID="$!"
@@ -2519,7 +2522,7 @@ case $menu in
 						   echo -e -n "$Cyan         [+]$Yellow CH (Channel) : $White"
 						   read CHANNEL
 						   echo ""
-						   hash bully
+						   
 						   hash_bully="$?"
 						   if [ $hash_bully -eq 0 ]
 								then
