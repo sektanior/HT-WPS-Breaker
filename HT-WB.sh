@@ -1631,13 +1631,10 @@ CRACKING_PROCESS() {
 																	tset
 																	trap exit_function SIGINT
 															elif [ $hash_bully -eq 0 ]
-															    
-then
+															     then
 										                             echo ""
-										      
-																 else
-																     echo ""
-																	 echo -e "$White [+] Running$Green reaver$White with the correct$Green PIN$White, wait ..."
+										                             echo -e "$White [+] Running$Green Reaver$White with the correct$Green PIN$White, wait ..."
+											                         echo ""
 										                             echo -e -n "$BYellow"
 										                             reaver -i $mon -b $BSSID -c $CHANNEL -e "$ESSID" -vv -n -p $PIN -T 4 | tee  ${Temporary}/Get_PIN.txt
 										                             PID="$!"
@@ -2522,7 +2519,7 @@ case $menu in
 						   echo -e -n "$Cyan         [+]$Yellow CH (Channel) : $White"
 						   read CHANNEL
 						   echo ""
-						   
+						   hash bully
 						   hash_bully="$?"
 						   if [ $hash_bully -eq 0 ]
 								then
